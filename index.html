@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ANDRA KAUSA PROPERTINDO</title>
+  <meta name="description" content="ANDRA KAUSA PROPERTINDO — Solusi Properti Terpercaya." />
+  <style>
+    :root{
+      --bg:#050505;
+      --card:#0b0b0b;
+      --text:#ececec;
+      --muted:#bfb7a0;
+      --gold:#d4af37;
+      --accent:linear-gradient(90deg,var(--gold),#f0c85a);
+      font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      --radius:12px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#b78e1b);display:flex;align-items:center;justify-content:center;color:#000;font-weight:800;font-size:18px}
+    nav{display:flex;gap:14px}
+    nav a{padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:20px}
+    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    h1{margin:0;font-size:30px;line-height:1.05}
+    .tag{color:var(--gold);font-weight:700}
+    p.lead{color:var(--muted);margin:12px 0 18px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;background:linear-gradient(90deg,var(--gold),#f3d07a);color:#000;text-decoration:none;font-weight:800}
+    .outline{border:1px solid rgba(212,175,55,0.18);padding:10px;border-radius:10px}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+    .feature{padding:14px;border-radius:10px;background:rgba(212,175,55,0.03);border:1px solid rgba(255,255,255,0.02)}
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:16px}
+    .product{border-radius:10px;padding:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .thumb{height:140px;border-radius:8px;background:linear-gradient(135deg,#111,#0b0b0b);display:flex;align-items:flex-end;padding:10px;font-weight:700}
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+    .meta{font-size:14px;color:var(--muted)}
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+    .media{background:linear-gradient(180deg,#0b0b0b,#050505);border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,0.03)}
+    /* Floating buttons */
+    .floating {
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:9999;
+    }
+    .float-btn{
+      width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--gold),#d0a83a);color:#000;font-weight:800;text-decoration:none;
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    }
+    /* Chat widget */
+    .chat-widget{position:fixed;right:86px;bottom:18px;width:360px;max-width:92vw;background:var(--card);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,0.6);overflow:hidden;display:none;flex-direction:column;z-index:10000}
+    .chat-header{padding:12px;background:linear-gradient(90deg,var(--gold),#f0c85a);color:#000;font-weight:800}
+    .chat-body{padding:12px;height:320px;overflow:auto;color:var(--text);background:linear-gradient(180deg,#070707,#050505)}
+    .chat-input{display:flex;border-top:1px solid rgba(255,255,255,0.03)}
+    .chat-input input{flex:1;padding:10px;border:0;background:transparent;color:var(--text)}
+    .chat-input button{padding:10px;border:0;background:var(--gold);color:#000;font-weight:700}
+    .msg{margin-bottom:10px;padding:8px;border-radius:8px;max-width:80%}
+    .msg.user{background:rgba(255,255,255,0.04);align-self:flex-end}
+    .msg.bot{background:rgba(212,175,55,0.08);color:#000}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">AK</div>
+        <div>
+          <div style="font-weight:800;font-size:16px">ANDRA KAUSA PROPERTINDO</div>
+          <div style="font-size:12px;color:var(--muted)">Solusi Properti Terpercaya</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#products">Produk</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div>
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+              <div>
+                <div class="tag">ANDRA KAUSA PROPERTINDO</div>
+                <h1>Solusi Properti <span style="color:var(--gold)">Terpercaya</span> untuk Investasi & Hunian</h1>
+                <p class="lead">Kami menyediakan proyek perumahan, ruko, dan kavling dengan layanan profesional dari konsultasi hingga serah terima.</p>
+                <div style="display:flex;gap:10px;margin-top:12px">
+                  <a class="btn" href="#products">Lihat Produk</a>
+                  <a class="outline" href="mailto:ANDRAKAUSA@GMAIL.COM">Kirim Email</a>
+                </div>
+              </div>
+              <div style="width:220px">
+                <div class="card" style="text-align:center">
+                  <div style="font-weight:800;font-size:16px;color:var(--gold)">Kontak Cepat</div>
+                  <div style="margin-top:10px;font-weight:700">WA: <a href="https://wa.me/6285735193430" style="color:var(--text);text-decoration:none">0857-3519-3430</a></div>
+                  <div style="margin-top:6px;color:var(--muted);font-size:13px">Email: ANDRAKAUSA@GMAIL.COM</div>
+                  <div style="margin-top:10px"><a class="btn" href="https://wa.me/6285735193430">Hubungi via WA</a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="features" style="margin-top:18px">
+              <div class="feature"><strong>Pengalaman</strong><div class="meta">Tim berpengalaman di bidang properti dan pengembangan proyek.</div></div>
+              <div class="feature"><strong>Lokasi Strategis</strong><div class="meta">Proyek di lokasi yang berkembang dan mudah diakses.</div></div>
+              <div class="feature"><strong>Legal Aman</strong><div class="meta">Dokumen lengkap & proses transparan.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3 style="margin-top:0;color:var(--gold)">Alamat Kantor</h3>
+            <div class="meta">JL. RAYA SAMBIROTO DESA MLATEN, KECAMATAN PURI, KABUPATEN MOJOKERTO, KODE POS: 61363</div>
+            <hr style="border:none;border-top:1px solid rgba(255,255,255,0.04);margin:12px 0">
+            <div style="font-weight:700">Jam Operasional</div>
+            <div class="meta" style="margin-top:6px">Senin — Jumat: 09.00 — 17.00<br>Sabtu: 09.00 — 13.00<br>Minggu: Tutup</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" style="margin-top:22px">
+        <h2 style="margin:0 0 12px;color:var(--gold)">Tentang Kami</h2>
+        <div class="card">
+          <p style="margin-top:0" class="lead">ANDRA KAUSA PROPERTINDO bergerak di bidang pengembangan properti dan penjualan unit hunian. Misi kami adalah menyediakan hunian berkualitas dengan proses yang jujur dan transparan, serta membantu investor mencapai nilai balik yang optimal.</p>
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+            <div style="min-width:220px" class="outline">
+              <strong>Visi</strong>
+              <div class="meta">Menjadi pengembang properti terpercaya di Jawa Timur yang menghadirkan hunian berkualitas.</div>
+            </div>
+            <div style="min-width:220px" class="outline">
+              <strong>Misi</strong>
+              <div class="meta">Memberikan produk properti yang aman, bernilai, dan terjangkau melalui pelayanan profesional.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" style="margin-top:22px">
+        <h2 style="margin:0 0 12px;color:var(--gold)">Produk & Proyek</h2>
+        <div class="products">
+          <div class="product card">
+            <div class="thumb">Perumahan ANDRA RESIDENCE</div>
+            <h3 style="margin:10px 0 4px">Perumahan ANDRA RESIDENCE</h3>
+            <div class="meta">Cluster modern 2- & 3 kamar, lingkungan aman, dekat akses jalan utama. Harga mulai: Hubungi sales.</div>
+          </div>
+
+          <div class="product card">
+            <div class="thumb">Ruko KAUSA SQUARE</div>
+            <h3 style="margin:10px 0 4px">Ruko KAUSA SQUARE</h3>
+            <div class="meta">Ruko strategis di area komersial, cocok untuk usaha & investasi jangka panjang.</div>
+          </div>
+
+          <div class="product card">
+            <div class="thumb">Kavling MLATEN INDAH</div>
+            <h3 style="margin:10px 0 4px">Kavling MLATEN INDAH</h3>
+            <div class="meta">Kavling siap bangun di lokasi berkembang, sertifikat SHM/SHGB (sesuai unit).</div>
+          </div>
+
+          <div class="product card">
+            <div class="thumb">Apartemen MOJOKERTO GOLD</div>
+            <h3 style="margin:10px 0 4px">Apartemen MOJOKERTO GOLD</h3>
+            <div class="meta">Unit vertikal modern dengan fasilitas keamanan 24 jam dan area komunal.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" style="margin-top:22px">
+        <h2 style="margin:0 0 12px;color:var(--gold)">Galeri Foto & Video</h2>
+        <div class="gallery">
+          <div class="media card">
+            <strong>Foto Proyek - Contoh 1</strong>
+            <div style="height:160px;background:linear-gradient(135deg,#111,#0b0b0b);border-radius:8px;margin-top:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Foto Placeholder</div>
+          </div>
+          <div class="media card">
+            <strong>Foto Proyek - Contoh 2</strong>
+            <div style="height:160px;background:linear-gradient(135deg,#111,#0b0b0b);border-radius:8px;margin-top:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Foto Placeholder</div>
+          </div>
+          <div class="media card">
+            <strong>Video Proyek (YouTube)</strong>
+            <div style="margin-top:8px">
+              <!-- Example YouTube embed; replace src with your video -->
+              <iframe width="100%" height="160" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Proyek" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:8px;border:0"></iframe>
+            </div>
+          </div>
+          <div class="media card">
+            <strong>Video Proyek (YouTube)</strong>
+            <div style="margin-top:8px">
+              <iframe width="100%" height="160" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Proyek 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:8px;border:0"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:22px">
+        <h2 style="margin:0 0 12px;color:var(--gold)">Kontak</h2>
+        <div class="contact-grid">
+          <div class="card">
+            <div style="font-weight:800">Hubungi Kami</div>
+            <p class="meta">Isi formulir ini untuk pertanyaan cepat — formulir akan membuka aplikasi email Anda.</p>
+            <form onsubmit="handleContact(event)" style="margin-top:10px;display:grid;gap:8px">
+              <input id="name" placeholder="Nama" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
+              <input id="email" type="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
+              <textarea id="message" placeholder="Pesan" rows="5" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)"></textarea>
+              <div style="display:flex;justify-content:flex-end;gap:8px">
+                <button class="btn" type="submit">Kirim Email</button>
+                <button type="button" class="outline" onclick="resetForm()">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card" style="display:flex;flex-direction:column;gap:10px;justify-content:center">
+            <div>
+              <div style="font-weight:700;color:var(--gold)">Kontak Langsung</div>
+              <div class="meta" style="margin-top:6px">WA: <a href="https://wa.me/6285735193430">0857-3519-3430</a></div>
+              <div class="meta">Email: <a href="mailto:ANDRAKAUSA@GMAIL.COM">ANDRAKAUSA@GMAIL.COM</a></div>
+            </div>
+            <div>
+              <div style="font-weight:700;color:var(--gold)">Alamat</div>
+              <div class="meta">JL. RAYA SAMBIROTO DESA MLATEN, KECAMATAN PURI, KABUPATEN MOJOKERTO, KODE POS: 61363</div>
+            </div>
+            <div style="margin-top:6px">
+              <a class="btn" href="https://wa.me/6285735193430">Hubungi via WhatsApp</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="padding:18px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)">
+        © <span id="year"></span> ANDRA KAUSA PROPERTINDO — Semua hak cipta.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Floating social & WA buttons -->
+  <div class="floating" aria-hidden="false">
+    <a class="float-btn" title="Instagram" href="https://instagram.com/andra_kausa" target="_blank" rel="noopener">IG</a>
+    <a class="float-btn" title="WhatsApp" href="https://wa.me/6285735193430" target="_blank" rel="noopener">WA</a>
+  </div>
+
+  <!-- Chat widget (Asisten ANDRA KAUSA) -->
+  <div class="chat-widget" id="chatWidget" role="dialog" aria-label="Asisten ANDRA KAUSA">
+    <div class="chat-header">Asisten ANDRA KAUSA</div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Halo! Saya Asisten ANDRA KAUSA. Ketik pertanyaan Anda tentang produk atau properti, saya siap membantu.</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Tulis pesan..." />
+      <button id="chatSend">Kirim</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Permintaan dari ' + name);
+      const body = encodeURIComponent('Nama: ' + name + '\\nEmail: ' + email + '\\n\\n' + message);
+      window.location.href = 'mailto:ANDRAKAUSA@GMAIL.COM?subject=' + subject + '&body=' + body;
+    }
+    function resetForm(){document.querySelector('form').reset();}
+
+    // Chat widget controls
+    const chatWidget = document.getElementById('chatWidget');
+    const chatBody = document.getElementById('chatBody');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+
+    // show/hide widget on float btn click
+    document.querySelectorAll('.float-btn').forEach(el=>{
+      el.addEventListener('click', (ev)=>{
+        const t = ev.currentTarget;
+        // if WA button clicked, let it open WA link; for IG too.
+        // To toggle chat widget, user can double-click floating area or press 'c' key.
+      });
+    });
+
+    // Toggle chat with keyboard 'c'
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'c' || e.key === 'C'){
+        toggleChat();
+      }
+    });
+
+    function toggleChat(){
+      if(chatWidget.style.display === 'flex'){
+        chatWidget.style.display = 'none';
+      } else {
+        chatWidget.style.display = 'flex';
+      }
+    }
+
+    // Simple helper to append message
+    function appendMessage(text, who='bot'){
+      const div = document.createElement('div');
+      div.className = 'msg ' + (who==='user' ? 'user' : 'bot');
+      div.textContent = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // === OPENAI INTEGRATION (Client-side example) ===
+    // WARNING: Storing API keys in client-side code is insecure.
+    // Recommended: use a server / proxy. Below is a minimal example for testing only.
+    //
+    // 1) Get your key at: https://platform.openai.com/account/api-keys
+    // 2) Paste the key below as a string (or better: host a small server to keep key secret)
+    //
+    const OPENAI_API_KEY = "sk-proj-I2aaKQ_lDQF6pSZni1rg3Uw2ZnSq_zIn0Kh-AEnNphve666AbvyiT6Lm-AHEG24dPsk-proj-I2aaKQ_lDQF6pSZni1rg3Uw2ZnSq_zIn0Kh-AEnNphve666AbvyiT6Lm-AHEG24dP-UQ-3a5vcT3BlbkFJti_K-wVvcTgyWBn_UnpfCEjeboFyHrx4exbsez1OTta4XOQiGL3glLlXpxNfXenQl2Alxf1SMA";
+
+    async function queryOpenAI(prompt){
+      if(!OPENAI_API_KEY || OPENAI_API_KEY === "sk-proj-I2aaKQ_lDQF6pSZni1rg3Uw2ZnSq_zIn0Kh-AEnNphve666AbvyiT6Lm-AHEG24dPsk-proj-I2aaKQ_lDQF6pSZni1rg3Uw2ZnSq_zIn0Kh-AEnNphve666AbvyiT6Lm-AHEG24dP-UQ-3a5vcT3BlbkFJti_K-wVvcTgyWBn_UnpfCEjeboFyHrx4exbsez1OTta4XOQiGL3glLlXpxNfXenQl2Alxf1SMA"){
+        appendMessage("Asisten: (API key belum diisi) — silakan tambahkan OpenAI API key di file index.html untuk mengaktifkan AI.", 'bot');
+        return;
+      }
+      appendMessage("Sedang memproses...", 'bot');
+      try{
+        const resp = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json",
+            "Authorization":"Bearer " + OPENAI_API_KEY
+          },
+          body: JSON.stringify({
+            model: "gpt-4o-mini", // contoh model; Anda bisa ubah sesuai kebutuhan
+            messages: [{role:"system", content:"Anda adalah asisten penjualan properti profesional untuk ANDRA KAUSA PROPERTINDO."},
+                       {role:"user", content:prompt}],
+            max_tokens: 500,
+            temperature: 0.2
+          })
+        });
+        const j = await resp.json();
+        if(j && j.choices && j.choices[0] && j.choices[0].message){
+          // remove the "Sedang memproses..." placeholder
+          // remove last bot placeholder
+          const last = chatBody.querySelectorAll('.msg.bot');
+          if(last.length>0) last[last.length-1].remove();
+          appendMessage(j.choices[0].message.content, 'bot');
+        } else {
+          appendMessage("Maaf, tidak ada respons dari API.", 'bot');
+        }
+      } catch(err){
+        appendMessage("Terjadi kesalahan: " + err.message, 'bot');
+      }
+    }
+
+    chatSend.addEventListener('click', ()=>{
+      const txt = chatInput.value.trim();
+      if(!txt) return;
+      appendMessage(txt, 'user');
+      chatInput.value = '';
+      // call OpenAI
+      queryOpenAI(txt);
+    });
+
+    // Optional: allow Enter to send
+    chatInput.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter' && !e.shiftKey){
+        e.preventDefault();
+        chatSend.click();
+      }
+    });
+
+    // Small accessibility: clicking the floating area with ctrl toggles chat
+    document.querySelector('.floating').addEventListener('click', (e)=>{
+      if(e.ctrlKey || e.metaKey){
+        toggleChat();
+      }
+    });
+
+    // For mobile: show chat on long press (touch)
+    let touchTimer = null;
+    document.querySelector('.floating').addEventListener('touchstart', ()=>{
+      touchTimer = setTimeout(()=> toggleChat(), 700);
+    });
+    document.querySelector('.floating').addEventListener('touchend', ()=>{ if(touchTimer) clearTimeout(touchTimer); });
+
+  </script>
+</body>
+</html>
